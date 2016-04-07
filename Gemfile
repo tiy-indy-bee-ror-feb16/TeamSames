@@ -27,6 +27,7 @@ gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
 gem 'faker'
+gem 'bootstrap-kaminari-views'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
