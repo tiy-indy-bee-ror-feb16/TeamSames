@@ -1,0 +1,2 @@
+class GleetsController < ApplicationController
+end
