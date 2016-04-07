@@ -1,4 +1,4 @@
 <div class="gleet">
-  <h6><%= link_to gleet.user.username, user_path(gleet.user) %> gleeted on <%= gleet.created_at %></h6>
+  <h6><%= link_to gleet.user.username, user_path(gleet.user) %> gleeted on <%= gleet.created_at %> <%= link_to "Delete", user_gleet_path(gleet.user, gleet), method: :delete %></h6>
   <%= simple_format(gleet.body) %>
 </div>
