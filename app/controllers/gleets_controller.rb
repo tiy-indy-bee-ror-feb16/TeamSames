@@ -6,6 +6,7 @@ class GleetsController < ApplicationController
 
   def new
     @gleet = Gleet.new
+    @user = User.find(params[:user_id])
   end
 
   def create
