@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="jumbotron">
-    <div class="container">
+    <div class="container-fluid">
       <div class="col-xs-6 nav">
         <%= link_to "G", root_path, id: "logo" %>
       </div>
@@ -27,6 +27,9 @@
   </div>
 
   <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
     <%= yield %>
   </div>
 
