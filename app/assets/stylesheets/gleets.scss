@@ -4,6 +4,7 @@
 
 body {
   background: rgba(250,245,255,1);
+  font-family: 'Oxygen', sans-serif;
 }
 
 .jumbotron {
@@ -44,5 +45,43 @@ body {
     margin-top: -5px;
     color: rgba(255,255,255,.8);
   }
+}
 
+.gleet {
+  margin-top: 5px;
+  padding: 0 10px;
+  background-color: #fff;
+  border: 1px solid rgba(200,180,210,1);
+  border-radius: 4px;
+}
+
+.pagination > .active > a {
+  background-color: rgba(200,180,210,1);
+  border-color: rgba(200,180,210,1);
+}
+
+.pagination > .active > a:hover {
+  background-color: rgba(200,180,210,1);
+  border-color: rgba(200,180,210,1);
+}
+
+.pagination > li > a {
+  border: 1px solid rgba(200,180,210,1);
+  color: rgba(190,150,200,1);
+}
+
+.pagination > li > a:hover {
+  border: 1px solid rgba(200,180,210,1);
+  color: rgba(190,150,200,1);
+  background-color: rgba(190,150,200,.3);
+}
+
+.pagination > .disabled > a {
+  border-color: rgba(200,180,210,1);
+  color: rgba(190,150,200,1);
+}
+
+.pagination > .disabled > a:hover {
+  border-color: rgba(200,180,210,1);
+  color: rgba(190,150,200,1);
 }

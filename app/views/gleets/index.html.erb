@@ -1,3 +1,7 @@
 <h2>Most Recent Gleets</h2>
 
-<%= render @gleets %>
+<div class="gleets">
+  <%= render @gleets %>
+</div>
+
+<%= paginate @gleets, :theme => 'twitter-bootstrap-3' %>
