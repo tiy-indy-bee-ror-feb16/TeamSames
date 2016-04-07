@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
+gem 'simple_form'
 gem 'faker'
 
 # Use ActiveModel has_secure_password
