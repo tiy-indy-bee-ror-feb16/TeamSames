@@ -1,7 +1,7 @@
 class GleetsController < ApplicationController
 
   def index
-    @gleets = Gleet.all
+    @gleets = Gleet.order(:created_at).page(params[:page])
   end
 
   def new
