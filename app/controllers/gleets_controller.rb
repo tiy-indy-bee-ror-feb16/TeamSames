@@ -10,9 +10,10 @@ class GleetsController < ApplicationController
 
   def create
     @gleet = Gleet.new(gleet_params)
+    @gleet.user_id = params[:user_id]
     if @gleet.save
       flash[:success] = "New Gleet created!"
-      redirect_to user_path
+      redirect_to :root
     else
       render :new
     end
