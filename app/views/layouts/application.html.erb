@@ -15,9 +15,13 @@
       </div>
       <div class="col-xs-6 login nav">
         <ul class="list-inline text-right">
-          <li><%= link_to "Sign up", "/signup" %></li>
-          <li><%= link_to "Log In", "/login" %></li>
-          <li><%= link_to "Log Out", "/logout", method: :delete %></li>
+          <% if current_user %>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Log Out", "/logout", method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign up", "/signup" %></li>
+            <li><%= link_to "Log In", "/login" %></li>
+          <% end %>
         </ul>
       </div>
       <div class="text-center">
