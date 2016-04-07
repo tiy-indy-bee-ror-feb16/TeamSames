@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+100.times do
+  User.create!(username: Faker::Internet.user_name, name: Faker::Name.name)
+end
+
+1000.times do
+  Gleet.create!(body: Faker::Hipster.sentence, user_id: rand(1..100))
+end
