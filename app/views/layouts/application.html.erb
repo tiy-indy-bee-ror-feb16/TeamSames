@@ -5,10 +5,31 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Oxygen:300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="col-xs-6 nav">
+        <%= link_to "G", root_path, id: "logo" %>
+      </div>
+      <div class="col-xs-6 login nav">
+        <ul class="list-inline text-right">
+          <li><%= link_to "Sign up", "#" %></li>
+          <li><%= link_to "Log In", "#" %></li>
+        </ul>
+      </div>
+      <div class="text-center">
+        <h1>Glitter</h1>
+        <h3>See what's shimmering right now.</h3>
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
+
 
 </body>
 </html>
