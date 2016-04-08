@@ -15,7 +15,7 @@ class GleetsController < ApplicationController
     @gleet.user_id = params[:user_id]
     if @gleet.save
       flash[:success] = "A new Gleet shines in the sun!"
-      redirect_to :root
+      redirect_to current_user
     else
       render :new
     end
