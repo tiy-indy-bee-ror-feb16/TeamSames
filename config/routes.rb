@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
   resources :users do
     resources :gleets
+    resources :follows
   end
   root 'gleets#index'
   get '/signup' => 'users#new'
