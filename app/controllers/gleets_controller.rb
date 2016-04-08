@@ -2,7 +2,7 @@ class GleetsController < ApplicationController
   before_action :require_user, only: [:new, :create, :destroy]
 
   def index
-    @gleets = Gleet.order(:created_at).page(params[:page])
+    @gleets = Gleet.order(:created_at => :desc).page(params[:page])
   end
 
   def new

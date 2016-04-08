@@ -16,6 +16,9 @@
         <h6>26</h6>
       </div>
     </div>
+    <% if not_me? %>
+      <%= render partial: 'follow_button' %>
+    <% end %>
   </div>
   <div class="col-sm-9">
     <%= render partial: 'gleets/form', locals: { user: @user, gleet: Gleet.new } %>
