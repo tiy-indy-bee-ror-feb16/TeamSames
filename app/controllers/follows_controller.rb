@@ -1,4 +1,5 @@
 class FollowsController < ApplicationController
+  before_action :require_user
 
   def show
     @user = User.find(params[:user_id])
@@ -11,4 +12,5 @@ class FollowsController < ApplicationController
     current_user.follow!(@user)
     redirect_to @user
   end
+  
 end
