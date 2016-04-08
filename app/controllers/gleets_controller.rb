@@ -1,4 +1,5 @@
 class GleetsController < ApplicationController
+  before_action :require_user, only: [:new, :create, :destroy]
 
   def index
     @gleets = Gleet.order(:created_at).page(params[:page])
@@ -13,11 +14,17 @@ class GleetsController < ApplicationController
     @gleet = Gleet.new(gleet_params)
     @gleet.user_id = params[:user_id]
     if @gleet.save
-      flash[:success] = "New Gleet created!"
+      flash[:success] = "A new Gleet shines in the sun!"
       redirect_to :root
     else
       render :new
     end
+  end
+
+  def destroy
+    Gleet.find(params[:id]).destroy
+    flash[:success] = "That Gleet has shined its last"
+    redirect_to :root
   end
 
   private
