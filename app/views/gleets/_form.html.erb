@@ -1,4 +1,4 @@
-<%= simple_form_for [@user, @gleet] do |f| %>
-  <%= f.input :body %>
+<%= simple_form_for [user, gleet] do |f| %>
+  <%= f.input :body, label: false, placeholder: "What's sparklin' now?" %>
   <%= f.button :submit %>
 <% end %>
