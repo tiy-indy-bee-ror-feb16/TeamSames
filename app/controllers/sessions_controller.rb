@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :disallow_user, only: [:create, :new]
 
   def new
   end

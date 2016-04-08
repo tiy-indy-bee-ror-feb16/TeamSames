@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
+  before_action :disallow_user, only: [:new, :create]
 
   def index
     @users = User.order(:created_at).page(params[:page])
   end
 
   def show
-    @user = User.find(params[:id])
-    @gleets = Gleet.timeline(@user).page(params[:page])
+    if current_user
+      @user = User.find(params[:id])
+      @gleets = Gleet.timeline(@user).page(params[:page])
+    else
+      render 'static_pages/marketing'
+    end
   end
 
   def new
@@ -16,7 +21,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to Gleeter!"
+      flash[:success] = "Welcome to Glitter!"
+      log_in @user
       redirect_to @user
     else
       render 'new'
