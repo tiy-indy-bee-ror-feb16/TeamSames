@@ -15,8 +15,7 @@
       <h6><%= @user.followers(User).count%></h6>
     </div>
   </div>
-  <% if not_me? %>
-    <%= render partial: 'follow_button' %>
-  <% end %>
-
 </div>
+<% if not_me? %>
+  <%= render partial: 'follow_button' %>
+<% end %>
