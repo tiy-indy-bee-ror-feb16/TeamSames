@@ -6,8 +6,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @gleets = Gleet.timeline(@user).page(params[:page])
+    if current_user
+      @user = User.find(params[:id])
+      @gleets = Gleet.timeline(@user).page(params[:page])
+    else
+      render 'static_pages/marketing'
+    end
   end
 
   def new
