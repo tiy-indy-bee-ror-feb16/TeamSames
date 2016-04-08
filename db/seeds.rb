@@ -13,3 +13,12 @@ end
 1000.times do
   Gleet.create!(body: Faker::Hipster.sentence, user_id: rand(1..100))
 end
+
+100.times do |i|
+  10.times do
+    j = rand(1..100)
+    unless j == i
+      Follow.create!(follower_type: "User", follower_id: i, followable_type: "User", followable_id: j)
+    end
+  end
+end
