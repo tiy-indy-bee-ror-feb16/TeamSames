@@ -3,7 +3,7 @@
     <%= render @user %>
   </div>
   <div class="col-md-8">
-    <%= render partial: 'gleets/form', locals: { user: @user, gleet: Gleet.new } %>
+    <%= render partial: 'gleets/form', locals: { user: @user, gleet: Gleet.new } unless not_me? %>
     <%= render @gleets %>
     <%= paginate @gleets, :theme => 'twitter-bootstrap-3' %>
   </div>
