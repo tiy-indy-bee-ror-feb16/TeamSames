@@ -25,7 +25,7 @@ class GleetsController < ApplicationController
   def destroy
     Gleet.find(params[:id]).destroy
     flash[:success] = "That Gleet has shined its last"
-    redirect_to :root
+    redirect_to :back
   end
 
   private
