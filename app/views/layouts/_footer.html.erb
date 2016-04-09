@@ -1,0 +1,16 @@
+<footer class="col-xs-12 footer nav">
+  <small>
+    Project code available at
+    <a href="https://github.com/tiy-indy-bee-ror-feb16/TeamSames">GitHub</a>
+  </small>
+  <ul class="list-inline text-right">
+    <% if current_user %>
+      <li><%= link_to "Profile", user_path(current_user) %></li>
+      <li><%= link_to "Log Out", "/logout", method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Sign up", "/signup" %></li>
+      <li><%= link_to "Log In", "/login" %></li>
+    <% end %>
+    <li><%= link_to "Glitter", root_path %></li>
+  </ul>
+</div>
