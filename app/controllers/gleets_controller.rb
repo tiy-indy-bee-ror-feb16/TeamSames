@@ -15,10 +15,10 @@ class GleetsController < ApplicationController
     @gleet.user_id = params[:user_id]
     if @gleet.save
       flash[:success] = "A new Gleet shines in the sun!"
-      redirect_to current_user
+      redirect_to user_path(id: current_user.username)
     else
       flash[:warning] = "Please, glitter responsibly."
-      redirect_to current_user
+      redirect_to user_path(id: current_user.username)
     end
   end
 
