@@ -7,8 +7,12 @@ class UsersController < ApplicationController
 
   def show
     if current_user
-      @user = params[:id] ? User.find(params[:id]) : current_user
-      @gleets = Gleet.timeline(@user).page(params[:page])
+      @user = params[:id] ? User.find_by(username: params[:id]) : current_user
+      if not_me?
+        @gleets = Gleet.where(user_id: @user.id).page(params[:page])
+      else
+        @gleets = Gleet.timeline(@user).page(params[:page])
+      end 
     else
       render 'static_pages/marketing'
     end

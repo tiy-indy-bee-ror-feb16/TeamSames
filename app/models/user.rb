@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :gleets
+  has_many :active_blocks, class_name:  "Blocking",
+                           foreign_key: "blocker_id",
+                           dependent:   :destroy
+  has_many :passive_blocks, class_name: "Blocking",
+                            foreign_key: "blocked_id",
+                            dependent:  :destroy
+  has_many :blocking, through: :active_blocks, source: :blocked
+  has_many :blocked_by, through: :passive_blocks, source: :blocker
   acts_as_follower
   acts_as_followable
   acts_as_liker
@@ -19,8 +27,26 @@ class User < ActiveRecord::Base
   validates :password, presence: true,
                        length: { minimum: 6, too_short: "Password must be at least 6 characters" }
 
+
   def email_is_valid_format
     errors.add(:email, "Not a valid email address") unless self.email =~ VALID_EMAIL_REGEX
+  end
+
+  def blocking?(other_user)
+    blocking.include?(other_user)
+  end
+
+  def blocked_by?(other_user)
+    blocked_by.include?(other_user)
+  end
+
+  def block(other_user)
+    active_blocks.create(blocked_id: other_user.id)
+    unfollow!(other_user)
+  end
+
+  def unblock(other_user)
+    active_blocks.find_by(blocked_id: other_user.id).destroy
   end
 
   private
@@ -28,4 +54,5 @@ class User < ActiveRecord::Base
   def downcase_email
     self.email = self.email.downcase if self.email.present?
   end
+
 end

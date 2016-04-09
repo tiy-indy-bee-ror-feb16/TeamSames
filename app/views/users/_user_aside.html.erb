@@ -1,0 +1,24 @@
+<div class="user">
+  <h2>Username</h2>
+  <h3><%= @user.username %></h3>
+  <div class="row">
+    <div class="col-xs-4">
+      <h6>GLEETS</h6>
+      <h6><%= @user.gleets.count %></h6>
+    </div>
+    <div class="col-xs-4">
+      <h6>FOLLOWING</h6>
+      <h6><%= @user.followees(User).count %></h6>
+    </div>
+    <div class="col-xs-4">
+      <h6>FOLLOWERS</h6>
+      <h6><%= @user.followers(User).count%></h6>
+    </div>
+  </div>
+</div>
+<% if not_me? %>
+  <div class="full-width">
+    <%= render partial: 'follow_button', locals: { user: @user } %>
+    <%= render partial: 'block_button', locals: { user: @user } %>
+  </div>
+<% end %>

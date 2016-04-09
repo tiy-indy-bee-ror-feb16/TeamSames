@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       flash[:success] = "You're logged in. Sparkle on!"
-      session[:user_id] = user.id
-      redirect_to user
+      session[:user_id] = user.username
+      redirect_to :root
     else
       flash[:danger] = "That email/password combination doesn't sparkle :)"
       render :new
