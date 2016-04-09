@@ -9,5 +9,4 @@ class Gleet < ActiveRecord::Base
     all_ids = following_ids << user.id
     Gleet.where(user_id: all_ids).order(created_at: :desc)
   end
-
 end

@@ -17,14 +17,15 @@ class GleetsController < ApplicationController
       flash[:success] = "A new Gleet shines in the sun!"
       redirect_to current_user
     else
-      render :new
+      flash[:warning] = "Please, glitter responsibly."
+      redirect_to current_user
     end
   end
 
   def destroy
     Gleet.find(params[:id]).destroy
     flash[:success] = "That Gleet has shined its last"
-    redirect_to :root
+    redirect_to :back
   end
 
   private
@@ -32,5 +33,4 @@ class GleetsController < ApplicationController
   def gleet_params
     params.require(:gleet).permit(:body)
   end
-
 end
