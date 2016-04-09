@@ -17,7 +17,8 @@ class GleetsController < ApplicationController
       flash[:success] = "A new Gleet shines in the sun!"
       redirect_to current_user
     else
-      render :new
+      flash[:warning] = "Please, glitter responsibly."
+      redirect_to current_user
     end
   end
 
