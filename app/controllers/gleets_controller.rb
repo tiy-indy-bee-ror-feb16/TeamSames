@@ -32,5 +32,4 @@ class GleetsController < ApplicationController
   def gleet_params
     params.require(:gleet).permit(:body)
   end
-
 end
