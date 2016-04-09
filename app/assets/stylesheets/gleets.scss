@@ -147,11 +147,19 @@ body {
 }
 
 #btn-gleet {
-  margin: -5px 0px 5px 0px;
+  margin: -5px 0px 10px 0px;
 }
 
 #btn-follow {
-  margin: -5px 0px 5px 0px;
+  margin: 10px 0;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(130,100,240,.5);
+  transition: background-color .2s ease-out;
+}
+
+#btn-follow:hover {
+  background-color: rgba(130,100,240,.8);
 }
 
 .about-page {
