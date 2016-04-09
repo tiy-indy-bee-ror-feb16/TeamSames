@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   acts_as_liker
   acts_as_likeable
 
-  before_save { self.email = email.downcase }
+  before_validation :downcase_email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   validates :username, uniqueness: true,
@@ -21,5 +21,11 @@ class User < ActiveRecord::Base
 
   def email_is_valid_format
     errors.add(:email, "Not a valid email address") unless self.email =~ VALID_EMAIL_REGEX
+  end
+
+  private
+
+  def downcase_email
+    self.email = self.email.downcase if self.email.present?
   end
 end
