@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :disallow_user, only: [:new, :create]
+  before_action :require_user, only: [:index, :show]
 
   def index
     @users = User.order(:created_at).page(params[:page])
