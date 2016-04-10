@@ -1,0 +1,4 @@
+<%= form_tag search_gleets_path, method: :get, class: "form-group" do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search all Gleets", class: "form-control" %>
+  <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+<% end %>
