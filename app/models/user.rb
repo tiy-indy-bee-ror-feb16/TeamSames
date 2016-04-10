@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   acts_as_liker
   acts_as_likeable
 
+  include PgSearch
+  pg_search_scope :search, against: [:username, :email]
+
   before_validation :downcase_email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
