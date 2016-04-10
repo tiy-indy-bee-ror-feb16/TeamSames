@@ -1,5 +1,5 @@
 <% if current_user.blocking?(user) %>
-  <%= link_to "UnBlock User", unblock_path(user_id: user.id), method: :delete, class: "btn btn-default user-button" %>
+  <%= link_to "UnBlock User", unblock_path(user_id: user.id), method: :delete, class: "btn btn-default" %>
 <% else %>
-  <%= link_to "Block User", block_path(user_id: user.id), class: "btn btn-default user-button" %>
+  <%= link_to "Block User", block_path(user_id: user.id), class: "btn btn-default" %>
 <% end %>
