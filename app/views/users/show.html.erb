@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4">
-    <%= render @user %>
+    <%= render partial: 'user_aside' %>
   </div>
   <div class="col-md-8">
     <%= render partial: 'gleets/form', locals: { user: @user, gleet: Gleet.new } unless not_me? %>

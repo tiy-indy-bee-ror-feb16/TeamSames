@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   post   '/login'  => 'sessions#create', as: :login_create
   delete '/logout' => 'sessions#destroy'
   get    '/users/:user_id/follow'   => 'follows#new', as: :follow
-  get    '/users/:user_id/unfollow' => 'follows#destroy', as: :unfollow
+  delete '/users/:user_id/unfollow' => 'follows#destroy', as: :unfollow
+  get    '/users/:user_id/block'    => 'blockings#new', as: :block
+  delete '/users/:user_id/unblock'  => 'blockings#destroy', as: :unblock
 
   resources :users do
     resources :gleets

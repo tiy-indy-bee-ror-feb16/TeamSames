@@ -1,6 +1,6 @@
 <div class="gleet">
   <h6>
-    <%= link_to gleet.user.username, user_path(gleet.user) %>
+    <%= link_to gleet.user.username, user_path(id: gleet.user.username) %>
     <%= gleet.created_at.strftime("Gleeted on %D at %I:%M%p") %>
     <% if current_user && current_user.id == gleet.user_id%>
       <%= link_to "Delete", user_gleet_path(gleet.user, gleet), method: :delete %>

@@ -15,7 +15,7 @@
         <ul class="list-inline text-right">
           <li><%= link_to "G", root_path, id: "logo" %></li>
           <% if current_user %>
-            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Profile", user_path(id: current_user.username) %></li>
             <li><%= link_to "Log Out", "/logout", method: :delete %></li>
           <% else %>
             <li><%= link_to "Sign up", "/signup" %></li>
