@@ -1,4 +1,5 @@
 class GleetsController < ApplicationController
+  include GleetsHelper
   before_action :require_user, only: [:new, :create, :destroy]
 
   def index
@@ -13,6 +14,7 @@ class GleetsController < ApplicationController
   def create
     @gleet = Gleet.new(gleet_params)
     @gleet.user_id = params[:user_id]
+    sparkling_sparkler(@gleet.body)
     if @gleet.save
       flash[:success] = "A new Gleet shines in the sun!"
       redirect_to user_path(id: current_user.username)
