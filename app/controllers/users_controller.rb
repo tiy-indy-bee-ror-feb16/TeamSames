@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         @gleets = Gleet.where(user_id: @user.id).page(params[:page])
       else
         @gleets = Gleet.timeline(@user).page(params[:page])
-      end 
+      end
     else
       render 'static_pages/marketing'
     end

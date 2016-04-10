@@ -13,6 +13,7 @@ class GleetsController < ApplicationController
   def create
     @gleet = Gleet.new(gleet_params)
     @gleet.user_id = params[:user_id]
+    @gleet.sparkalize
     if @gleet.save
       flash[:success] = "A new Gleet shines in the sun!"
       redirect_to user_path(id: current_user.username)
