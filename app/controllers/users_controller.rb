@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Welcome to Glitter!"
       log_in @user
-      redirect_to @user
+      redirect_to :root
     else
       render 'new'
     end
