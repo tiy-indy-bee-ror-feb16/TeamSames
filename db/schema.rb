@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 20160409205058) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "blockings", ["blocked_id"], name: "index_blockings_on_blocked_id", using: :btree
+  add_index "blockings", ["blocker_id", "blocked_id"], name: "index_blockings_on_blocker_id_and_blocked_id", unique: true, using: :btree
+  add_index "blockings", ["blocker_id"], name: "index_blockings_on_blocker_id", using: :btree
+
   create_table "follows", force: :cascade do |t|
     t.string   "follower_type"
     t.integer  "follower_id"
