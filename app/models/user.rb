@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true,
                        length: { minimum: 5, too_short: "Username must be at least 5 characters",
-                                 maximum: 20, too_long: "Username must be 20 characters or less" }
+                                 maximum: 25, too_long: "Username must be 25 characters or less" }
   validates :email, presence: true,
                     uniqueness: true,
                     case_sensitive: false
