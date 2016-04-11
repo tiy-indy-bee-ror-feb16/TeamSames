@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
     active_blocks.find_by(blocked_id: other_user.id).destroy
   end
 
+  def to_param
+    username
+  end
+
   private
 
   def downcase_email
