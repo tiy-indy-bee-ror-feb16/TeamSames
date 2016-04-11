@@ -23,7 +23,8 @@ class GleetsController < ApplicationController
   end
 
   def destroy
-    Gleet.find(params[:id]).destroy
+    gleet = Gleet.find(params[:id])
+    gleet.destroy if gleet.user == current_user
     flash[:success] = "That Gleet has shined its last"
     redirect_to :back
   end
