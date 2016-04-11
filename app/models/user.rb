@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   end
 
   def blocked_by?(other_user)
-    blocked_by.include?(other_user)
+    blocked_by.exists?(other_user)
   end
 
   def block(other_user)
