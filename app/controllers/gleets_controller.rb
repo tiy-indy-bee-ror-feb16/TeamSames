@@ -12,19 +12,19 @@ class GleetsController < ApplicationController
 
   def create
     @gleet = Gleet.new(gleet_params)
-    @gleet.user_id = params[:user_id]
-    @gleet.sparkalize
+    @gleet.user = current_user
     if @gleet.save
       flash[:success] = "A new Gleet shines in the sun!"
-      redirect_to user_path(id: current_user.username)
+      redirect_to current_user
     else
       flash[:warning] = "Please, glitter responsibly."
-      redirect_to user_path(id: current_user.username)
+      redirect_to current_user
     end
   end
 
   def destroy
-    Gleet.find(params[:id]).destroy
+    gleet = Gleet.find(params[:id])
+    gleet.destroy if gleet.user == current_user
     flash[:success] = "That Gleet has shined its last"
     redirect_to :back
   end

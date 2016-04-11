@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if current_user
       @user = params[:id] ? User.find_by(username: params[:id]) : current_user
       if not_me?
-        @gleets = Gleet.where(user_id: @user.id).page(params[:page])
+        @gleets = @user.gleets.order(created_at: :desc).page(params[:page])
       else
         @gleets = Gleet.timeline(@user).page(params[:page])
       end

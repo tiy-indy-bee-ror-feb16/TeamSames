@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true,
                        length: { minimum: 5, too_short: "Username must be at least 5 characters",
-                                 maximum: 20, too_long: "Username must be 20 characters or less" }
+                                 maximum: 25, too_long: "Username must be 25 characters or less" }
   validates :email, presence: true,
                     uniqueness: true,
                     case_sensitive: false
@@ -36,11 +36,11 @@ class User < ActiveRecord::Base
   end
 
   def blocking?(other_user)
-    blocking.include?(other_user)
+    blocking.exists?(other_user)
   end
 
   def blocked_by?(other_user)
-    blocked_by.include?(other_user)
+    blocked_by.exists?(other_user)
   end
 
   def block(other_user)
@@ -50,6 +50,10 @@ class User < ActiveRecord::Base
 
   def unblock(other_user)
     active_blocks.find_by(blocked_id: other_user.id).destroy
+  end
+
+  def to_param
+    username
   end
 
   private
