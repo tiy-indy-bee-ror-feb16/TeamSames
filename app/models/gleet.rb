@@ -4,6 +4,8 @@ class Gleet < ActiveRecord::Base
   validates :body, presence: true
   validates :body, length: { maximum: 170, too_long: "%{count} characters is the maximum allowed" }
 
+  before_save :sparkalize
+
   include PgSearch
   pg_search_scope :search, against: [:body]
 

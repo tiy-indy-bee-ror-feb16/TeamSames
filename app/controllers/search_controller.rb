@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
   def users
-    if params[:query].present?
+    if params[:query]
       @users = User.search(params[:query]).order(:created_at).page(params[:page])
     else
       @users = User.order(:created_at).page(params[:page])
