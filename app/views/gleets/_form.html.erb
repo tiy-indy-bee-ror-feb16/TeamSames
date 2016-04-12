@@ -1,5 +1,5 @@
 <%= simple_form_for [user, gleet] do |f| %>
   <%= f.input :body, label: false, placeholder: "What's sparklin' now?" %>
-  <span id="counter"><p>Gleet length: </p></span>
+  <span id="counter"></span>
   <%= f.button :submit, "New Gleet", id: "btn-gleet" %>
 <% end %>
