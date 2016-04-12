@@ -176,6 +176,17 @@ body {
   background-color: rgba(130,100,240,.8);
 }
 
+#counter {
+  display: inline;
+  position: absolute;
+  right: 0;
+  padding-right: 15px;
+}
+
+.red {
+  color: #a94442;
+}
+
 .about-page {
   h1 {
     margin-bottom: 20px;
