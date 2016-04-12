@@ -1,6 +1,7 @@
 <%= simple_form_for @user ||= User.new do |f| %>
   <%= f.input :username, autofocus: true %>
   <%= f.input :email %>
+  <%= f.input :picture_url %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
   <%= f.button :submit %>
