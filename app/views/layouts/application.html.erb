@@ -20,8 +20,8 @@
             <li><%= link_to "Log Out", "/logout", method: :delete %></li>
           <% else %>
             <li><%= link_to "G", root_path, id: "logo" %></li>
-            <li><%= link_to "Sign up", "/signup" %></li>
-            <li><%= link_to "Log In", "/login" %></li>
+            <li><%= link_to "Sign up", "/signup", data: { toggle: "modal", target: "#signup_form", remote: false } %></li>
+            <li><%= link_to "Log In", "/login", data: { toggle: "modal", target: "#login_form", remote: false } %></li>
           <% end %>
         </ul>
       </div>
@@ -39,8 +39,12 @@
     <%= yield %>
   </div>
 
-<div class="container">
-  <%= render 'layouts/footer' %>
-</div>
+  <div class="container">
+    <%= render 'layouts/footer' %>
+  </div>
+
+  <!-- Modal -->
+  <%= render partial: 'sessions/form', layout: 'shared/modal', locals: { label: 'login_form', title: 'Log In'} %>
+  <%= render partial: 'users/form', layout: 'shared/modal', locals: { label: 'signup_form', title: 'Sign Up' } %>
 </body>
 </html>
