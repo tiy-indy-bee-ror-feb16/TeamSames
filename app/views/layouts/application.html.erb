@@ -15,7 +15,8 @@
         <ul class="list-inline text-right">
           <% if current_user %>
             <li><%= link_to "Users", users_path %></li>
-            <li><%= link_to "Gleets", glitter_index_path %></li>
+            <li><%= link_to "New Gleet", new_user_gleet_path(user_id: current_user.id), data: { toggle: "modal", target: "#new_gleet_form", remote: false } %></li>
+            <li><%= link_to "All Gleets", glitter_index_path %></li>
             <li><%= link_to "Profile", current_user %></li>
             <li><%= link_to "Log Out", "/logout", method: :delete %></li>
           <% else %>
@@ -32,10 +33,8 @@
     </div>
   </div>
 
-  <div class="container">
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+  <div class="container" id="main">
+    <%= render partial: 'shared/flashes' %>
     <%= yield %>
   </div>
 
@@ -47,5 +46,6 @@
   <%= render partial: 'sessions/form', layout: 'shared/modal', locals: { label: 'login_form', title: 'Log In'} %>
   <%= render partial: 'users/form', layout: 'shared/modal', locals: { label: 'signup_form', title: 'Sign Up' } %>
   <%= render partial: 'users/bio', layout: 'shared/modal', locals: { label: 'user_biography', title: "User Info" } %>
+  <%= render partial: 'gleets/form', layout: 'shared/modal', locals: { label: 'new_gleet_form', title: 'New Gleet', user: current_user, gleet: Gleet.new } %>
 </body>
 </html>
