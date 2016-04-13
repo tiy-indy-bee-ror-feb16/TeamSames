@@ -170,13 +170,12 @@ body {
   margin-top: -40px;
 }
 
-#btn-follow {
-  color: #fff;
+.btn-follow {
   background-color: rgba(130,100,240,.5);
   transition: background-color .2s ease-out;
 }
 
-#btn-follow:hover {
+.btn-follow:hover {
   background-color: rgba(130,100,240,.8);
 }
 

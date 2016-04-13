@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.order(:created_at).page(params[:page])
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end
   end
 
   def show
@@ -13,6 +17,10 @@ class UsersController < ApplicationController
         @gleets = @user.gleets.order(created_at: :desc).page(params[:page])
       else
         @gleets = Gleet.timeline(@user).page(params[:page])
+      end
+      respond_to do |format|
+        format.html {}
+        format.js   {}
       end
     else
       render 'static_pages/marketing'

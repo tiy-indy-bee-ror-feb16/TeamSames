@@ -46,7 +46,6 @@ function convert_to_local_time() {
 }
 
 function zero_pad_minutes(min) {
-  console.log(min.length);
   if (min.length === 1) {
     return "0" + min;
   } else {

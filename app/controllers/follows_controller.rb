@@ -4,13 +4,19 @@ class FollowsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     current_user.follow!(@user)
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { }
+    end
   end
 
   def destroy
     @user = User.find(params[:user_id])
     current_user.unfollow!(@user)
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render :new }
+    end
   end
 
 end

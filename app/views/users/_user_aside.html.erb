@@ -19,7 +19,7 @@
   </div>
 </div>
 <% if not_me? %>
-  <div class="full-width">
+  <div class="full-width" id="user-buttons-<%= @user.id %>">
     <%= render partial: 'follow_button', locals: { user: @user } %>
     <%= render partial: 'block_button', locals: { user: @user } %>
   </div>
