@@ -23,7 +23,12 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = "Glitter again soon!"
-    redirect_to :root
+    respond_to do |format|
+      format.html {
+        flash[:success] = "Glitter again soon!"
+        redirect_to :root
+      }
+      format.js { }
+    end
   end
 end
