@@ -7,9 +7,14 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      flash[:success] = "You're logged in. Sparkle on!"
       session[:user_id] = user.username
-      redirect_to :root
+      respond_to do |format|
+        format.html {
+          flash[:success] = "You're logged in. Sparkle on!"
+          redirect_to :root
+        }
+        format.js { }
+      end
     else
       flash[:danger] = "That email/password combination doesn't sparkle :)"
       render :new

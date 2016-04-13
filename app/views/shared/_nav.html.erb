@@ -1,0 +1,13 @@
+<ul class="list-inline text-right">
+  <% if current_user %>
+    <li><%= link_to "Users", users_path %></li>
+    <li><%= link_to "New Gleet", new_user_gleet_path(user_id: current_user.id), data: { toggle: "modal", target: "#new_gleet_form", remote: false } %></li>
+    <li><%= link_to "All Gleets", glitter_index_path %></li>
+    <li><%= link_to "Profile", current_user %></li>
+    <li><%= link_to "Log Out", "/logout", method: :delete %></li>
+  <% else %>
+    <li><%= link_to "G", root_path, id: "logo" %></li>
+    <li><%= link_to "Sign up", "/signup", data: { toggle: "modal", target: "#signup_form", remote: false } %></li>
+    <li><%= link_to "Log In", "/login", data: { toggle: "modal", target: "#login_form", remote: false } %></li>
+  <% end %>
+</ul>
