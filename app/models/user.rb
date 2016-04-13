@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
   validate :email_is_valid_format
   validates :password, presence: true,
                        length: { minimum: 6, too_short: "Password must be at least 6 characters" }
+  validates :bio, presence: true
+
+  before_save :set_default_picture
 
 
   def email_is_valid_format
@@ -60,6 +63,10 @@ class User < ActiveRecord::Base
 
   def downcase_email
     self.email = self.email.downcase if self.email.present?
+  end
+
+  def set_default_picture
+    self.picture_url = picture_url.empty? ? "https://unsplash.it/400/?image=1061" : picture_url
   end
 
 end

@@ -23,7 +23,7 @@ body {
     color: rgba(255,255,255,.9);
   }
   h3 {
-    font-size: 70px;
+    font-size: 65px;
     margin-top: -25px;
     color: rgba(255,255,255,.8);
   }
@@ -69,6 +69,10 @@ body {
     font-weight: 700;
     color: $gleet-purple;
   }
+}
+
+.avatar {
+  max-height: 100px;
 }
 
 .pagination > .active > a {
@@ -214,7 +218,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 992px) {
   .jumbotron {
     h1 {
       margin-top: 150px;
@@ -223,6 +227,12 @@ body {
     h3 {
       margin-top: -10px;
       font-size: 50px;
+    }
+  }
+  .user {
+    text-align: center;
+    img {
+      max-height: 100px;
     }
   }
 }
