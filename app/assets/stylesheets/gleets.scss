@@ -23,7 +23,7 @@ body {
     color: rgba(255,255,255,.9);
   }
   h3 {
-    font-size: 70px;
+    font-size: 65px;
     margin-top: -25px;
     color: rgba(255,255,255,.8);
   }
@@ -69,6 +69,10 @@ body {
     font-weight: 700;
     color: $gleet-purple;
   }
+}
+
+.avatar {
+  max-height: 100px;
 }
 
 .pagination > .active > a {
@@ -166,14 +170,28 @@ body {
   margin-top: -40px;
 }
 
-#btn-follow {
-  color: #fff;
+.btn-follow {
   background-color: rgba(130,100,240,.5);
   transition: background-color .2s ease-out;
 }
 
-#btn-follow:hover {
+.btn-follow:hover {
   background-color: rgba(130,100,240,.8);
+}
+
+#btn-follow {
+  color: #fff;
+}
+
+#counter {
+  display: inline;
+  position: absolute;
+  right: 0;
+  padding-right: 15px;
+}
+
+.red {
+  color: #a94442;
 }
 
 .about-page {
@@ -203,7 +221,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 992px) {
   .jumbotron {
     h1 {
       margin-top: 150px;
@@ -212,6 +230,12 @@ body {
     h3 {
       margin-top: -10px;
       font-size: 50px;
+    }
+  }
+  .user {
+    text-align: center;
+    img {
+      max-height: 100px;
     }
   }
 }

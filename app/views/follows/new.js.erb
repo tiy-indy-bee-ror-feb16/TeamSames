@@ -1,0 +1,1 @@
+$('#user-buttons-<%= @user.id %>').html(`<%= render partial: 'users/follow_button', locals: { user: @user } %><%= render partial: 'users/block_button', locals: { user: @user } %>`)

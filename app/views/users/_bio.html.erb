@@ -1,7 +1,5 @@
 <div class="user">
-  <%= link_to "#", data: { toggle: "modal", target: "#user_biography", remote: false } do %>
-    <img src="<%= @user.picture_url %>" class="img-rounded avatar">
-  <% end %>
+  <img src="<%= @user.picture_url %>" class="img-rounded avatar">
   <h3><%= @user.username %></h3>
   <div class="row">
     <div class="col-xs-4">
@@ -17,10 +15,10 @@
       <h6><%= @user.followers(User).count%></h6>
     </div>
   </div>
-</div>
-<% if not_me? %>
-  <div class="full-width" id="user-buttons-<%= @user.id %>">
-    <%= render partial: 'follow_button', locals: { user: @user } %>
-    <%= render partial: 'block_button', locals: { user: @user } %>
+  <div class="row">
+    <div class="col-xs-12 user-bio">
+      <h4>User Bio:</h4>
+      <%= simple_format @user.bio %>
+    </div>
   </div>
-<% end %>
+</div>

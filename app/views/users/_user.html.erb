@@ -1,6 +1,6 @@
 <div class="gleet">
   <h4><%= link_to user.username, user, class: "user-link" %></h4>
-  <div class="text-right user-buttons">
+  <div class="text-right user-buttons" id="user-buttons-<%= user.id %>">
     <%= render partial: 'users/follow_button', locals: { user: user } %>
     <%= render partial: 'users/block_button', locals: { user: user } %>
   </div>

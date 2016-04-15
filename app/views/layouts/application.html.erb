@@ -11,19 +11,8 @@
 <body>
   <div class="jumbotron">
     <div class="container-fluid">
-      <div class="col-xs-12 login nav">
-        <ul class="list-inline text-right">
-          <% if current_user %>
-            <li><%= link_to "Users", users_path %></li>
-            <li><%= link_to "Gleets", glitter_index_path %></li>
-            <li><%= link_to "Profile", current_user %></li>
-            <li><%= link_to "Log Out", "/logout", method: :delete %></li>
-          <% else %>
-            <li><%= link_to "G", root_path, id: "logo" %></li>
-            <li><%= link_to "Sign up", "/signup" %></li>
-            <li><%= link_to "Log In", "/login" %></li>
-          <% end %>
-        </ul>
+      <div class="col-xs-12 login nav" id="nav">
+        <%= render partial: 'shared/nav' %>
       </div>
       <div class="text-left">
         <h1>Glitter</h1>
@@ -32,15 +21,19 @@
     </div>
   </div>
 
-  <div class="container">
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+  <div class="container" id="main">
+    <%= render partial: 'shared/flashes' %>
     <%= yield %>
   </div>
 
-<div class="container">
-  <%= render 'layouts/footer' %>
-</div>
+  <div class="container">
+    <%= render 'layouts/footer' %>
+  </div>
+
+  <!-- Modal -->
+  <%= render partial: 'sessions/form', layout: 'shared/modal', locals: { label: 'login_form', title: 'Log In'} %>
+  <%= render partial: 'users/form', layout: 'shared/modal', locals: { label: 'signup_form', title: 'Sign Up' } %>
+  <%= render partial: 'users/bio', layout: 'shared/modal', locals: { label: 'user_biography', title: "User Info" } %>
+  <%= render partial: 'gleets/form', layout: 'shared/modal', locals: { label: 'new_gleet_form', title: 'New Gleet', user: current_user, gleet: Gleet.new }  if current_user %>
 </body>
 </html>

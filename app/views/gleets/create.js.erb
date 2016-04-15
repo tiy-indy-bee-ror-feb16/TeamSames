@@ -1,0 +1,4 @@
+$('#new_gleet_form').modal('toggle')
+$('#new_gleet')[0].reset()
+$('#gleets-list').prepend('<%=j render @this_gleet %>')
+$('#main').prepend('<%=j render "shared/flashes", flash: { success: "A new Gleet shines in the sun!" } %>')

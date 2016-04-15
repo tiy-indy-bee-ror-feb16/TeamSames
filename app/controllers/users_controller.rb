@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         @gleets = Gleet.timeline(@user).page(params[:page])
       end
     else
-      render 'static_pages/marketing'
+      redirect_to glitter_index_path
     end
   end
 
@@ -38,6 +38,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :picture_url, :bio)
   end
 end

@@ -1,0 +1,4 @@
+$('#login_form').modal('toggle')
+$('.modal-body form')[0].reset()
+$('#nav').html('<%=j render "shared/nav" %>')
+$('#main').prepend('<%=j render "shared/flashes", flash: { success: "You logged in, Sparkle on!"} %>')
